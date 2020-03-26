@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<title>Tweet Analyser</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-light-blue.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1px 1px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: skyblue; 
+  color: white; 
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+</style>
+<body class="w3-theme-13">
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-twitter w3-margin-right"></i>Twitter</a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-home"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-globe"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+      <a href="#" class="w3-bar-item w3-button">Friend Requests</a>
+      <a href="#" class="w3-bar-item w3-button">Someone liked your post</a>
+      <a href="#" class="w3-bar-item w3-button">Tweet</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTKrT51Q57PTD7Te1nrY7EXbmsToGamVLl6s6JqypUVkI-yY_5-" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
+  </a>
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">THE AVENGERS</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-light-blue">
+        <div class="w3-container">
+         <h4 class="w3-center">THE AVENGERS</h4>
+         <p class="w3-center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnQtNXRKJE2UBDhBijoHyIMo7SBkO_AzHWBP69yQaEpr5ozbc5" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+         <hr>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Bayard Kalyan</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Pansy Thakuria</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> Pratyush Bhattacharya</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> Bhargov Borah</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> Samannay Bhattacharya </p>
+        </div>
+      </div>
+      <br>
+      
+      <!-- Accordion -->
+      <div class="w3-card w3-round">
+        <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> Recent News</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> Upcoming Events</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
+          <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+          <div id="Demo3" class="w3-hide w3-container">
+         <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+         </div>
+          </div>
+        </div>      
+      </div>
+      <br>
+      
+      <!-- Interests --> 
+      <div class="w3-card w3-round w3-white w3-hide-small">
+        <div class="w3-container">
+          <p>Tweets/Tags</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">Modi</span>
+            <span class="w3-tag w3-small w3-theme-d4">Congress</span>
+            <span class="w3-tag w3-small w3-theme-d3">BJP</span>
+            <span class="w3-tag w3-small w3-theme-d2">NaMo</span>
+            <span class="w3-tag w3-small w3-theme-d1">Election</span>
+            <span class="w3-tag w3-small w3-theme">LokSabha2019</span>
+            <span class="w3-tag w3-small w3-theme-l1">2019elections</span>
+            <span class="w3-tag w3-small w3-theme-l2">LokSabha</span>
+            <span class="w3-tag w3-small w3-theme-l3">Parliament</span>
+            <span class="w3-tag w3-small w3-theme-l4">FairElections</span>
+            <span class="w3-tag w3-small w3-theme-l5">RahulGandhi</span>
+          </p>
+        </div>
+      </div>
+      <br>
+      
+      
+    
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m7">
+    
+      <div class="w3-row-padding">
+        <div class="w3-col m12">
+          <div class="w3-card w3-round w3-light-blue">
+             <form action="/submit" method="POST">
+              <div class="w3-container w3-padding ">
+                      <div class="col-lg-6">
+          
+              <div class="form-group mt-2">
+                  
+                      <h4  label for="exampleInputPassword1" >Enter the tag :</label>
+                        
+                        
+                      <input type="text"  class="form-control w3-border w3-padding"  id="exampleInputPassword1" placeholder="#tags" name="topic">
+              </div>
+              <p></p>
+              <p></p>
+          
+              <div class="form-group">
+                      <h4 class="form-control" label for="exampleInputPassword1">How many tweets do you want to calculate?</label>
+                       
+                      <input type="text" class="form-control w3-border w3-padding" id="exampleInputPassword1" placeholder="Number of Tweets" name="count">
+              </div> <p></p>
+              <p></p>
+              <button type="submit" class="button button2" value="Register">SEARCH  >></button>
+              </div>
+              </div>
+              </form>
+          </div>
+        </div>
+      </div> 
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="https://pbs.twimg.com/profile_images/1121763586487939072/3PmpwzEO_400x400.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">1 min</span>
+        <h4>NDTV News Feed</h4><br>
+        <hr class="w3-clear">
+        <p>Ex-BJP MLA VIJAY GHODMARE JOINS NCP</p>
+<p>The NCP, once a ruling party in Maharashtra in alliance with the Congress, is now grappling with a crisis due to desertions by a number of leaders on the eve of elections.</p>
+          <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+              <img src="https://c.ndtvimg.com/2019-09/hms4b10g_former-bjp-mla-vijayghodmaremaharashtra-_625x300_14_September_19.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
+            </div>
+            <div class="w3-half">
+              <img src="data:image/jpeg;base64,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" style="width:100%" alt="Nature" class="w3-margin-bottom">
+          </div>
+        </div>
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-share"></i>  Share</button> 
+      </div>
+      
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTshFnJFuZpzqRYLnnm0JViIU26edZ6aJtRENcgjqv7M1yaBNDs"class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">16 min</span>
+        <h4>Narendra Modi</h4><br>
+        <hr class="w3-clear">
+        <p>At the newly inaugurated Jharkhand Vidhan Sabha complex, interacted with MLAs of the state. 
+
+May this Vidhan Sabha complex serve as an important centre of realising people’s dreams. 
+
+I hope more youngsters from across Jharkhand come to visit this complex in the times to come.</p>
+        <img src="https://pbs.twimg.com/media/EERTrdoVUAEvE4E?format=jpg&name=4096x4096" style="width:100%" class="w3-margin-bottom">
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-share"></i>  Share</button> 
+      </div>  
+
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <img src="data:image/jpeg;base64,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" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <span class="w3-right w3-opacity">32 min</span>
+        <h4>Sten Widmalm</h4><br>
+        <hr class="w3-clear">
+        
+        
+        <p>I have written a two-part series on the decline of India’s democracy for The Wire in India. #electionindia This is the first article:</p>
+        <p>Have you seen this?</p>
+         <img src="https://cdn.thewire.in/wp-content/uploads/2019/04/06161046/karthik-chandran-538960-unsplash-1200x600.jpg" style="width:100%" class="w3-margin-bottom">
+        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
+        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-share"></i>  Share</button> 
+      </div> 
+      
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col w3-white m2">
+      <div class="w3-card w3-round w3-light-blue w3-center">
+        <div class="w3-container">
+          <p>CURRENT EVENTS:</p>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA2O-nwWPkGk3jXqrNPgGrh2bnlf7tA0uZprfE6Au2YkbwK-v33A" alt="Forest" style="width:100%;">
+          <p><strong>Delhi: Mahila Haat is the New Address for Sunday Book Market</strong></p>
+          <p>A Standoff Occured Between India-China Due to LOC</p>
+          <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+        </div>
+      </div>
+      <br>
+      
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>YOU MIGHT LIKE</p>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsCRKE9XtPW9Fm5at7BDCGwDRGSPTF83FGCiPj7kfADcDHpQbi" alt="Avatar" style="width:50%"><br>
+          <span>India TV</span>
+          <div class="w3-row">
+            <div class="w3-full">
+              <button class="w3-button w3-block w3-blue w3-section" title="FOLLOW"><i>FOLLOW</i></button>
+            </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQUv-F-8RpT_nxkuXjUsLJ0o0GLhlRufOeRjBkyvu5oYM-JNypH" alt="Avatar" style="width:50%"><br>
+          <span>ABP News</span>
+          <div class="w3-row">
+            <div class="w3-full">
+              <button class="w3-button w3-block w3-blue w3-section" title="FOLLOW"><i>FOLLOW</i></button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <br>
+      
+      
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5>Sentiment Analyser</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">the Avengers</a></p>
+</footer>
+ 
+<script>
+// Accordion
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className += " w3-theme-d1";
+  } else { 
+    x.className = x.className.replace("w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+  }
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html> 
